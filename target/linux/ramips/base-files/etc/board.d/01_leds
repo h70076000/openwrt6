@@ -136,6 +136,7 @@ kn_rf|\
 kng_rc|\
 mzk-ex300np|\
 oy-0001|\
+ma1210|\
 tew-714tru|\
 zbt-wr8305rt)
 	set_wifi_led "$boardname:green:wifi"
