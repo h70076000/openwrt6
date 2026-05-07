@@ -711,12 +711,22 @@ define Device/elecom_wrc-2533gst2
 endef
 TARGET_DEVICES += elecom_wrc-2533gst2
 
+define Device/hxzn_nx18nnw
+  $(Device/xiaomi_nand_separate)
+  DEVICE_MODEL := Hxzn nx18nnw
+  IMAGE_SIZE := 124416k
+  DEVICE_PACKAGES += kmod-mt7915-firmware \
+	kmod-usb-ledtrig-usbport
+  SUPPORTED_DEVICES += hxzn nx18 hxzn,nx18nnw
+endef
+TARGET_DEVICES += hxzn-router-nx18nnw
+
 define Device/firefly_firewrt
   $(Device/dsa-migration)
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := Firefly
   DEVICE_MODEL := FireWRT
-  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb3 kmod-usb-ledtrig-usbport
+  DEVICE_PACKAGES := kmod-mt7915-firmware
   SUPPORTED_DEVICES += firewrt
 endef
 TARGET_DEVICES += firefly_firewrt
