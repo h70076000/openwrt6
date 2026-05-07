@@ -6,8 +6,8 @@
 #include <dt-bindings/input/input.h>
 
 / {
-	compatible = "hxzb,ma1210", "ralink,mt7620a-soc";
-	model = "Hxzn MA1210";
+	compatible = "ruijie,ma1210", "ralink,mt7620a-soc";
+	model = "Ruijie MA1210SDWAN";
 
 	aliases {
 		led-boot = &led_power;
