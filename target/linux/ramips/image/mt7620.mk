@@ -598,13 +598,13 @@ define Device/rt-n14u
 endef
 TARGET_DEVICES += rt-n14u
 
-define Device/MA1210
+define Device/ma1210
   DTS := MA1210
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
-  DEVICE_TITLE := Hxzn MA1210
+  DEVICE_TITLE := Ruijie MA1210SDWAN
   DEVICE_PACKAGES := kmod-mt76x0e kmod-usb2 kmod-usb-ohci kmod-usb-ledtrig-usbport
 endef
-TARGET_DEVICES += MA1210
+TARGET_DEVICES += ma1210
 
 define Device/tiny-ac
   DTS := TINY-AC
