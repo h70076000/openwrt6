@@ -1,4 +1,4 @@
-#include "mt7621_mt7621_hxzn_nx18nnw_128m.dtsi"
+#include "mt7621_hxzn_nx18nnw_128m.dtsi"
 
 / {
 	compatible = "hxzn,nx18nnw", "mediatek,mt7621-soc";
