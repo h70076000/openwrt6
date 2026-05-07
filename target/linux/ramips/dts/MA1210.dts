@@ -7,7 +7,7 @@
 
 / {
 	compatible = "hxzb,ma1210", "ralink,mt7620a-soc";
-	model = "Hxkj HXZN-MA1210";
+	model = "Hxzn MA1210";
 
 	aliases {
 		led-boot = &led_power;
