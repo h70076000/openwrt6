@@ -4,25 +4,12 @@
 	compatible = "hxzn,nx18nnw", "mediatek,mt7621-soc";
 	model = "Hxzn Nx18nnw";
 
-	chosen {
-		bootargs = "console=ttyS0,115200";
-		bootargs-override = "console=ttyS0,115200";
-	};
-
-	keys {
-		compatible = "gpio-keys";
-
-		reset {
-			label = "reset";
-			gpios = <&gpio 13 GPIO_ACTIVE_LOW>;
-			linux,code = <KEY_RESTART>;
-		};
-
-		wps {
-			label = "wps";
-			gpios = <&gpio 14 GPIO_ACTIVE_LOW>;
-			linux,code = <KEY_WPS_BUTTON>;
-		};
+	aliases {
+		led-boot = &led_status_yellow;
+		led-failsafe = &led_status_red;
+		led-running = &led_status_blue;
+		led-upgrade = &led_status_yellow;
+		label-mac-device = &gmac0;
 	};
 
 	leds {
@@ -44,116 +31,64 @@
 	};
 };
 
-&gmac1 {
-	status = "okay";
-	label = "wan";
-	phy-handle = <&ethphy4>;
-};
-
-&mdio {
-	ethphy4: ethernet-phy@4 {
-		reg = <4>;
+	reg_usb_vbus: regulator {
+		compatible = "regulator-fixed";
+		regulator-name = "usb_vbus";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <5000000>;
+		gpio = <&gpio 12 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
 	};
 };
 
-&nand {
-	status = "okay";
-
-	mediatek,nmbm;
-	mediatek,bmt-max-ratio = <1>;
-	mediatek,bmt-max-reserved-blocks = <64>;
-	mediatek,bmt-remap-range = <0x0000000 0x0a00000>;
-
-	partitions {
-		compatible = "fixed-partitions";
-		#address-cells = <1>;
-		#size-cells = <1>;
-
-		partition@0 {
-			label = "u-boot";
-			reg = <0x0000000 0x0080000>;
-			read-only;
-		};
-
-		partition@80000 {
-			label = "u-boot-env";
-			reg = <0x0080000 0x0080000>;
-		};
-
-		partition@100000 {
-			label = "exp";
-			reg = <0x0100000 0x0080000>;
-			read-only;
-		};
-
-		factory: partition@180000 {
-			label = "factory";
-			reg = <0x0180000 0x0080000>;
-			read-only;
-		};
-
-		partition@200000 {
-			label = "firmware";
-			reg = <0x0200000 0x7600000>;
-
-			compatible = "fixed-partitions";
-			#address-cells = <1>;
-			#size-cells = <1>;
-
-			partition@0 {
-				label = "kernel";
-				reg = <0x0000000 0x0800000>;
-			};
-
-			partition@800000 {
-				label = "ubi";
-				reg = <0x0800000 0x6e00000>;
-			};
-		};
-
-		/* last 8 MiB is reserved for NMBM bad block table */
-	};
+&xhci {
+	vbus-supply = <&reg_usb_vbus>;
 };
 
 &pcie {
 	status = "okay";
 };
 
+&pcie0 {
+	wifi@0,0 {
+		compatible = "pci14c3,7603";
+		reg = <0x0000 0 0 0 0>;
+		mediatek,mtd-eeprom = <&factory 0x0000>;
+		ieee80211-freq-limit = <2400000 2500000>;
+	};
+};
+
 &pcie1 {
 	wifi@0,0 {
-		compatible = "mediatek,mt76";
+		compatible = "pci14c3,7662";
 		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <&factory 0x0>;
-		mediatek,disable-radar-background;
+		mediatek,mtd-eeprom = <&factory 0x8000>;
+		ieee80211-freq-limit = <5000000 6000000>;
 	};
+};
+
+&gmac0 {
+	nvmem-cells = <&macaddr_factory_e006>;
+	nvmem-cell-names = "mac-address";
 };
 
 &state_default {
 	gpio {
-		groups = "jtag";
+		groups = "jtag", "uart2", "uart3", "wdt";
 		function = "gpio";
 	};
 };
 
-&switch0 {
-	ports {
-		port@1 {
-			status = "okay";
-			label = "lan1";
-		};
+&factory {
+	compatible = "nvmem-cells";
+	#address-cells = <1>;
+	#size-cells = <1>;
 
-		port@2 {
-			status = "okay";
-			label = "lan2";
-		};
-
-		port@3 {
-			status = "okay";
-			label = "lan3";
-		};
+	macaddr_factory_e000: macaddr@e000 {
+		reg = <0xe000 0x6>;
 	};
-};
 
-&xhci {
-	status = "disabled";
+	macaddr_factory_e006: macaddr@e006 {
+		reg = <0xe006 0x6>;
+	};
 };
