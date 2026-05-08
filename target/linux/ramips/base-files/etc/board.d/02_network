@@ -204,13 +204,13 @@ ramips_setup_interfaces()
 	ar670w|\
 	ar725w|\
 	rakwireless,rak633|\
+	ma1210|\
 	rt-ac51u)
 		ucidef_add_switch "switch0" \
 			"0:wan" "1:lan" "2:lan" "3:lan" "4:lan" "6t@eth0"
 		;;
 	belkin,f9k1109v1|\
 	rt-n15|\
-	ma1210|\
 	wl-351)
 		ucidef_add_switch "switch0" \
 			"0:lan" "1:lan" "2:lan" "3:lan" "4:wan" "5@eth0"
