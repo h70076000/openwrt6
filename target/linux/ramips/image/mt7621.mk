@@ -1690,6 +1690,17 @@ define Device/huasifei_ws1208v2
 endef
 TARGET_DEVICES += huasifei_ws1208v2
 
+define Device/hxzn_nx880n
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := HXZN
+  DEVICE_MODEL := NX880n
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb2 \
+          kmod-usb-ledtrig-usbport
+endef
+TARGET_DEVICES += hxzn_nx880n
+
 define Device/iodata_wn-ax1167gr
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
