@@ -235,6 +235,16 @@ define Device/hc5962
 endef
 TARGET_DEVICES += hc5962
 
+define Device/nx880n
+  DTS := NX880N
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := HXZN
+  DEVICE_MODEL := NX880N
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb2 \
+          kmod-usb-ledtrig-usbport
+endef
+TARGET_DEVICES += nx880n
+
 define Device/iodata_wn-ax1167gr
   DTS := WN-AX1167GR
   IMAGE_SIZE := 15552k
