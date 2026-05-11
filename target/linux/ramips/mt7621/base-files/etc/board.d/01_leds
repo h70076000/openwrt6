@@ -137,6 +137,10 @@ gnubee,gb-pc2)
 huasifei,ws1208v2)
 	ucidef_set_led_netdev "wwan0" "wwan0" "green:cellular" "wwan0" "link tx rx"
 	;;
+hxzn,nx880n)
+    ucidef_set_led_netdev "sys" "SYS_LED" "white:system" "eth0" "tx rx"
+    ucidef_set_led_timer "power" "POWER_LED" "white:power" "100" "8000"
+	;;
 keenetic,kn-1910|\
 keenetic,kn-3010)
 	ucidef_set_led_netdev "internet" "internet" "green:internet" "wan"
