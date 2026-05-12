@@ -138,7 +138,7 @@ TARGET_DEVICES += mediatek_ap-mt7621a-v60
 
 define Device/xzwifi_creativebox-v1
   DTS := CreativeBox-v1
-  IMAGE_SIZE := 32448k
+  IMAGE_SIZE := 16064k
   DEVICE_VENDOR := CreativeBox
   DEVICE_MODEL := v1
   DEVICE_PACKAGES := kmod-ata-ahci kmod-mt7603 kmod-mt76x2 kmod-sdhci-mt7620 \
