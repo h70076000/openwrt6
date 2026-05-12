@@ -6,8 +6,8 @@
 #include <dt-bindings/leds/common.h>
 
 / {
-        compatible = "zte,e8820v2", "mediatek,mt7621-soc";
-        model = "ZTE E8820V2";
+        compatible = "nx880n", "mediatek,mt7621-soc";
+        model = "HXZN NX880N";
 
         aliases {
                 led-boot = &led_sys;
@@ -18,7 +18,7 @@
         };
 
         chosen {
-                bootargs = "console=ttyS0,115200 rootfstype=squashfs,jffs2"; // 定义了TTL，没有这个TTL不能用，yumeimm的固件ttl乱码就是缺这个，此外注意不要添加ethphy0中断
+                bootargs = "console=ttyS0,115200 rootfstype=squashfs,jffs2";
         };
 
         memory@0 {
