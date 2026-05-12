@@ -7,7 +7,7 @@
 
 / {
 	compatible = "hxzn,nx880n", "mediatek,mt7621-soc";
-	model = "CreativeBox v1";
+	model = "Hxzn nx880n";
 
 	aliases {
 		led-boot = &led_sys;
