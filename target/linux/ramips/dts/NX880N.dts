@@ -8,7 +8,7 @@
 
 / {
         compatible = "nx880n", "mediatek,mt7621-soc";
-        model = "HXZN NX880N";
+        model = "NX880N";
 
 	aliases {
 		led-boot = &led_sys;
