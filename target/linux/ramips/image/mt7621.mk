@@ -629,6 +629,16 @@ define Device/hiwifi_hc5962
 endef
 TARGET_DEVICES += hiwifi_hc5962
 
+define Device/hxzn_nx880n
+  $(Device/dsa-migration)
+  IMAGE_SIZE := 32448k
+  DEVICE_VENDOR := Hxzn
+  DEVICE_MODEL := nx880n
+  DEVICE_PACKAGES := kmod-ata-ahci kmod-mt7603 kmod-mt76x2 kmod-sdhci-mt7620 \
+	kmod-usb3 -wpad-basic-wolfssl
+endef
+TARGET_DEVICES += hxzn_nx880n
+
 define Device/iodata_wn-ax1167gr
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
