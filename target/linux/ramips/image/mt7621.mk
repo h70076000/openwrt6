@@ -237,7 +237,7 @@ TARGET_DEVICES += hc5962
 
 define Device/nx880n
   DTS := NX880N
-  IMAGE_SIZE := 16064k
+  IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_VENDOR := HXZN
   DEVICE_MODEL := NX880N
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb2 \
