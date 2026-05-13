@@ -136,7 +136,6 @@ kn_rf|\
 kng_rc|\
 mzk-ex300np|\
 oy-0001|\
-ma1210|\
 tew-714tru|\
 zbt-wr8305rt)
 	set_wifi_led "$boardname:green:wifi"
@@ -301,6 +300,7 @@ rt-n12p)
 	ucidef_set_led_netdev "wan" "wan" "$boardname:green:wan" eth0.2
 	set_wifi_led "$boardname:green:air"
 	;;
+ma1210|\
 rt-n14u)
 	ucidef_set_led_netdev "lan" "lan" "$boardname:blue:lan" eth0.1
 	ucidef_set_led_netdev "wan" "wan" "$boardname:blue:wan" eth0.2
