@@ -601,7 +601,7 @@ TARGET_DEVICES += rt-n14u
 define Device/ma1210
   DTS := MA1210
   DEVICE_TITLE := Ruijie MA1210SDWAN
-  DEVICE_PACKAGES := kmod-mt76x0e kmod-usb2 kmod-usb-ohci
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci
 endef
 TARGET_DEVICES += ma1210
 
