@@ -943,6 +943,17 @@ define Device/ravpower_rp-wd03
 endef
 TARGET_DEVICES += ravpower_rp-wd03
 
+define Device/ruijie_ma1210sdwan
+  SOC := mt7620a
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := Ruijie
+  DEVICE_MODEL := MA1210SDWAN
+  DEVICE_PACKAGES := kmod-mt76x0e kmod-usb2 kmod-usb-ohci \
+	kmod-usb-ledtrig-usbport
+  SUPPORTED_DEVICES += ma1210sdwan
+endef
+TARGET_DEVICES += ruijie_ma1210sdwan
+
 define Device/sanlinking_d240
   SOC := mt7620a
   IMAGE_SIZE := 16064k
