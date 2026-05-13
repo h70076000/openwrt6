@@ -639,6 +639,16 @@ define Device/hxzn_nx880n
 endef
 TARGET_DEVICES += hxzn_nx880n
 
+define Device/hxzn_nx18n
+  $(Device/dsa-migration)
+  IMAGE_SIZE := 32448k
+  DEVICE_VENDOR := Hxzn
+  DEVICE_MODEL := nx18n
+  DEVICE_PACKAGES := kmod-mt7615e kmod-mt7615-firmware kmod-sdhci-mt7620 \
+	kmod-usb3 -wpad-basic-wolfssl
+endef
+TARGET_DEVICES += hxzn_nx18n
+
 define Device/iodata_wn-ax1167gr
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
