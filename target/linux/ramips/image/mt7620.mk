@@ -600,8 +600,9 @@ TARGET_DEVICES += rt-n14u
 
 define Device/ma1210
   DTS := MA1210
-  DEVICE_TITLE := Ruijie MA1210SDWAN
-  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci
+  IMAGE_SIZE := $(ralink_default_fw_size_16M)
+  DEVICE_TITLE := Hxzn Ma1210sdwan
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-usb-ledtrig-usbport
 endef
 TARGET_DEVICES += ma1210
 
