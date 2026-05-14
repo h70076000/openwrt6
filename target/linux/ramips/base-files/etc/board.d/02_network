@@ -204,6 +204,7 @@ ramips_setup_interfaces()
 	ar670w|\
 	ar725w|\
 	rakwireless,rak633|\
+	ma1210|\
 	rt-ac51u)
 		ucidef_add_switch "switch0" \
 			"0:wan" "1:lan" "2:lan" "3:lan" "4:lan" "6t@eth0"
@@ -237,7 +238,6 @@ ramips_setup_interfaces()
 	mikrotik,rb750gr3|\
 	mzk-wdpr|\
 	rt-n14u|\
-	ma1210|\
 	skylab,skw92a|\
 	tplink,c20-v4|\
 	tplink,c50-v3|\
