@@ -204,7 +204,6 @@ ramips_setup_interfaces()
 	ar670w|\
 	ar725w|\
 	rakwireless,rak633|\
-	ma1210|\
 	rt-ac51u)
 		ucidef_add_switch "switch0" \
 			"0:wan" "1:lan" "2:lan" "3:lan" "4:lan" "6t@eth0"
@@ -352,6 +351,7 @@ ramips_setup_interfaces()
 		ucidef_add_switch "switch1" \
 			"1:lan:4" "2:lan:3" "3:lan:2" "4:lan:1" "0:wan" "6@eth0"
 		;;
+	ma1210|\
 	kn_rf)
 		ucidef_add_switch "switch0" \
 			"0:wan" "1:lan" "2:lan" "3:lan" "4:lan" "6@eth0"
@@ -601,6 +601,7 @@ ramips_setup_macs()
 		;;
 	kn_rc|\
 	kn_rf|\
+	ma1210|\
 	kng_rc)
 		wan_mac=$(mtd_get_mac_binary factory 40)
 		;;
