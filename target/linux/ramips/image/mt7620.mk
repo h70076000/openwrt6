@@ -598,6 +598,14 @@ define Device/rt-n14u
 endef
 TARGET_DEVICES += rt-n14u
 
+define Device/rt-ac51u
+  DTS := RT-AC51U
+  IMAGE_SIZE := $(ralink_default_fw_size_16M)
+  DEVICE_TITLE := Hxzn MA1210SDWAN
+  DEVICE_PACKAGES := kmod-mt76x0e kmod-usb2 kmod-usb-ohci kmod-usb-ledtrig-usbport
+endef
+TARGET_DEVICES += rt-ac51u
+
 define Device/ma1210
   DTS := MA1210
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
