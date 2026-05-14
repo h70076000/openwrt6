@@ -19,30 +19,20 @@
 	leds {
 		compatible = "gpio-leds";
 
-		wan {
-			label = "rt-n14u:blue:wan";
-			gpios = <&gpio2 0 GPIO_ACTIVE_LOW>;
-		};
-
-		lan {
-			label = "rt-n14u:blue:lan";
-			gpios = <&gpio2 1 GPIO_ACTIVE_LOW>;
+		led_power: power {
+			label = "rt-ac51u:blue:power";
+			gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
 		};
 
 		usb {
-			label = "rt-n14u:blue:usb";
-			gpios = <&gpio2 2 GPIO_ACTIVE_LOW>;
+			label = "rt-ac51u:blue:usb";
+			gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
 			trigger-sources = <&ohci_port1>, <&ehci_port1>;
 			linux,default-trigger = "usbport";
 		};
 
-		led_power: power {
-			label = "rt-n14u:blue:power";
-			gpios = <&gpio2 3 GPIO_ACTIVE_LOW>;
-		};
-
-		air {
-			label = "rt-n14u:blue:air";
+		wifi {
+			label = "rt-ac51u:blue:wifi";
 			gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
 		};
 	};
@@ -63,14 +53,6 @@
 			linux,code = <KEY_WPS_BUTTON>;
 		};
 	};
-};
-
-&gpio2 {
-	status = "okay";
-};
-
-&gpio3 {
-	status = "okay";
 };
 
 &spi0 {
@@ -121,7 +103,21 @@
 	status = "okay";
 };
 
+&gpio0 {
+	enable-leds {
+		gpio-hog;
+		line-name = "enable-leds";
+		output-low;
+		gpios = <10 GPIO_ACTIVE_HIGH>;
+	};
+};
+
+&gpio3 {
+	status = "okay";
+};
+
 &ethernet {
+	status = "okay";
 	mtd-mac-address = <&factory 0x4>;
 	mediatek,portmap = "wllll";
 };
@@ -132,9 +128,20 @@
 
 &pinctrl {
 	state_default: pinctrl0 {
-		default {
-			ralink,group = "ephy", "wled", "i2c";
+		gpio {
+			ralink,group = "i2c", "wled", "uartf";
 			ralink,function = "gpio";
 		};
+	};
+};
+
+&pcie {
+	status = "okay";
+};
+
+&pcie0 {
+	wifi@0,0 {
+		reg = <0x0000 0 0 0 0>;
+		mediatek,mtd-eeprom = <&factory 0x8000>;
 	};
 };
