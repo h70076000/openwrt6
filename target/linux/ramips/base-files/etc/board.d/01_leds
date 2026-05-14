@@ -101,6 +101,7 @@ d240|\
 mlw221|\
 mlwg2|\
 rakwireless,rak633|\
+ma1210|\
 rt-ac51u)
 	set_wifi_led "$boardname:blue:wifi"
 	;;
@@ -300,7 +301,6 @@ rt-n12p)
 	ucidef_set_led_netdev "wan" "wan" "$boardname:green:wan" eth0.2
 	set_wifi_led "$boardname:green:air"
 	;;
-ma1210|\
 rt-n14u)
 	ucidef_set_led_netdev "lan" "lan" "$boardname:blue:lan" eth0.1
 	ucidef_set_led_netdev "wan" "wan" "$boardname:blue:wan" eth0.2
