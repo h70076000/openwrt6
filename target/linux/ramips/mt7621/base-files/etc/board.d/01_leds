@@ -232,6 +232,9 @@ tplink,tl-wpa8631p-v3)
 xiaomi,mi-router-4a-gigabit-v2)
 	ucidef_set_led_netdev "wan" "wan" "blue:wan" "wan" "link"
 	;;
+hxzn,nx18n)
+	ucidef_set_led_netdev "internet" "Internet" "blue:net" "wan"
+	;;
 xiaomi,mi-router-ac2100)
 	ucidef_set_led_netdev "wan-blue" "WAN (blue)" "blue:wan" "wan"
 	;;
