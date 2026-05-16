@@ -1211,8 +1211,8 @@ define Device/hxzn_nx18n
   IMAGE_SIZE := 32448k
   DEVICE_VENDOR := Hxzn
   DEVICE_MODEL := nx18n
-  DEVICE_PACKAGES := kmod-mt7615e kmod-mt7615-firmware kmod-sdhci-mt7620 \
-	kmod-usb3 -wpad-basic-wolfssl
+  DEVICE_PACKAGES := kmod-ata-ahci kmod-usb3 -wpad-basic-mbedtls \
+	-uboot-envtools
 endef
 TARGET_DEVICES += hxzn_nx18n
 
