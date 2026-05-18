@@ -28,6 +28,7 @@ d-team,pbr-m1|\
 gehua,ghl-r-001|\
 jcg,y2|\
 hxzn,nx880n|\
+hxzn,ac105g|\
 xzwifi,creativebox-v1)
 	ucidef_set_led_netdev "internet" "internet" "blue:internet" "wan"
 	;;
