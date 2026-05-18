@@ -629,6 +629,16 @@ define Device/hiwifi_hc5962
 endef
 TARGET_DEVICES += hiwifi_hc5962
 
+define Device/hxzn_ac105g
+  $(Device/dsa-migration)
+  IMAGE_SIZE := 32448k
+  DEVICE_VENDOR := Hxzn
+  DEVICE_MODEL := ac105g
+  DEVICE_PACKAGES := kmod-ata-ahci kmod-sdhci-mt7620 \
+	kmod-usb3 -wpad-basic-wolfssl
+endef
+TARGET_DEVICES += hxzn_ac105g
+
 define Device/hxzn_nx880n
   $(Device/dsa-migration)
   IMAGE_SIZE := 32448k
@@ -642,7 +652,7 @@ TARGET_DEVICES += hxzn_nx880n
 define Device/hxzn_nx18n
   $(Device/dsa-migration)
   IMAGE_SIZE := 32448k
-  DEVICE_VENDOR := Hxzn
+  DEVICE_VENDOR := H3c
   DEVICE_MODEL := nx18n
   DEVICE_PACKAGES := kmod-mt7615e kmod-mt7615-firmware kmod-sdhci-mt7620 \
 	kmod-usb3 -wpad-basic-wolfssl
