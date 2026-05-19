@@ -47,9 +47,6 @@ dlink,dir-882-r1)
 gnubee,gb-pc2)
 	ucidef_set_led_netdev "ethyellow" "ethyellow" "orange:ethyellow" "ethyellow" "link tx rx"
 	;;
-hxzn,nx18nw)
-	ucidef_set_led_netdev "internet" "Internet" "blue:net" "wan"
-	;;
 linksys,e5600)
 	ucidef_set_led_netdev "wan" "wan link" "blue:wan" "wan" "link"
 	;;
