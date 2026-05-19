@@ -1,21 +1,38 @@
-// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-
-#include "mt7621.dtsi"
-
-#include <dt-bindings/gpio/gpio.h>
-#include <dt-bindings/input/input.h>
-
 / {
 	aliases {
-		led-boot = &led_status_amber;
-		led-failsafe = &led_status_green;
-		led-running = &led_status_green;
-		led-upgrade = &led_status_amber;
+		led-boot = &led_sys_yellow;
+		led-failsafe = &led_sys_blue;
+		led-running = &led_sys_blue;
+		led-upgrade = &led_sys_yellow;
+		label-mac-device = &gmac0;
 	};
 
 	chosen {
-		bootargs = "console=ttyS0,115200";
-		bootargs-override = "console=ttyS0,115200";
+		bootargs = "console=ttyS0,115200n8";
+	};
+
+	leds {
+		compatible = "gpio-leds";
+
+		led_sys_yellow: sys_yellow {
+			label = "yellow:sys";
+			gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
+		};
+
+		led_sys_blue: sys_blue {
+			label = "blue:sys";
+			gpios = <&gpio 15 GPIO_ACTIVE_LOW>;
+		};
+
+		net_yellow {
+			label = "yellow:net";
+			gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
+		};
+
+		net_blue {
+			label = "blue:net";
+			gpios = <&gpio 15 GPIO_ACTIVE_LOW>;
+		};
 	};
 
 	keys {
@@ -32,36 +49,6 @@
 			gpios = <&gpio 14 GPIO_ACTIVE_LOW>;
 			linux,code = <KEY_WPS_BUTTON>;
 		};
-	};
-
-	leds {
-		compatible = "gpio-leds";
-
-		led_status_amber: led-0 {
-			label = "amber:status";
-			color = <LED_COLOR_ID_AMBER>;
-			function = LED_FUNCTION_STATUS;
-			gpios = <&gpio 15 GPIO_ACTIVE_LOW>;
-		};
-
-		led_status_green: led-1 {
-			label = "green:status";
-			color = <LED_COLOR_ID_GREEN>;
-			function = LED_FUNCTION_STATUS;
-			gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
-		};
-	};
-};
-
-&gmac1 {
-	status = "okay";
-	label = "wan";
-	phy-handle = <&ethphy4>;
-};
-
-&mdio {
-	ethphy4: ethernet-phy@4 {
-		reg = <4>;
 	};
 };
 
