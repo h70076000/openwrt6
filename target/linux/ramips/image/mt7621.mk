@@ -656,6 +656,24 @@ define Device/hxzn_nx18nw
 endef
 TARGET_DEVICES += hxzn_nx18nw
 
+define Device/hxzn_8800ns
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_SIZE := 4096k
+  UBINIZE_OPTS := -E 5
+  IMAGE_SIZE := 129280k
+  IMAGES += factory.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
+	check-size
+  DEVICE_VENDOR := HXZN
+  DEVICE_MODEL := 8800NS
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-ledtrig-usbport
+endef
+TARGET_DEVICES += hxzn_8800ns
+
 define Device/hxzn_nx880n
   $(Device/dsa-migration)
   IMAGE_SIZE := 32448k
