@@ -7,37 +7,22 @@
 
 / {
 	aliases {
-		led-boot = &led_sys_yellow;
-		led-failsafe = &led_sys_blue;
-		led-running = &led_sys_blue;
-		led-upgrade = &led_sys_yellow;
-		label-mac-device = &gmac0;
-	};
-
-	chosen {
-		bootargs = "console=ttyS0,115200n8";
+		led-boot = &led_blue;
+		led-failsafe = &led_blue;
+		led-running = &led_blue;
+		led-upgrade = &led_blue;
 	};
 
 	leds {
 		compatible = "gpio-leds";
 
-		led_sys_yellow: sys_yellow {
-			label = "yellow:sys";
+		stat_y {
+			label = "yellow:status";
 			gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
 		};
 
-		led_sys_blue: sys_blue {
-			label = "blue:sys";
-			gpios = <&gpio 15 GPIO_ACTIVE_LOW>;
-		};
-
-		net_yellow {
-			label = "yellow:net";
-			gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
-		};
-
-		net_blue {
-			label = "blue:net";
+		led_blue: stat_b {
+			label = "blue:status";
 			gpios = <&gpio 15 GPIO_ACTIVE_LOW>;
 		};
 	};
@@ -49,12 +34,6 @@
 			label = "reset";
 			gpios = <&gpio 13 GPIO_ACTIVE_LOW>;
 			linux,code = <KEY_RESTART>;
-		};
-
-		wps {
-			label = "wps";
-			gpios = <&gpio 14 GPIO_ACTIVE_LOW>;
-			linux,code = <KEY_WPS_BUTTON>;
 		};
 	};
 };
