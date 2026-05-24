@@ -711,15 +711,15 @@ define Device/elecom_wrc-2533gst2
 endef
 TARGET_DEVICES += elecom_wrc-2533gst2
 
-define Device/hxzn_nx18nnw
-  $(Device/xiaomi_nand_separate)
-  DEVICE_MODEL := Hxzn nx18nnw
-  IMAGE_SIZE := 124416k
-  DEVICE_PACKAGES += kmod-mt7915-firmware \
-	kmod-usb-ledtrig-usbport
-  SUPPORTED_DEVICES += hxzn nx18 hxzn,nx18nnw
+define Device/hxkj_360v5s
+  $(Device/dsa-migration)
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := HXKJ
+  DEVICE_MODEL := 360v5s
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt7615e kmod-mt7663-firmware-ap \
+	-uboot-envtools
 endef
-TARGET_DEVICES += hxzn-router-nx18nnw
+TARGET_DEVICES += hxkj_360v5s
 
 define Device/firefly_firewrt
   $(Device/dsa-migration)
