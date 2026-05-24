@@ -698,8 +698,7 @@ define Device/hxkj_360v5s
   $(Device/dsa-migration)
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := HXKJ
-  DEVICE_MODEL := MT7621
-  DEVICE_VARIANT := 360v5s
+  DEVICE_MODEL := 360v5s
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt7615e kmod-mt7663-firmware-ap \
 	-uboot-envtools
 endef
