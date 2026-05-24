@@ -44,7 +44,7 @@
 			linux,code = <KEY_RESTART>;
 		};
 	};
-}
+};
 
 &spi0 {
 	status = "okay";
@@ -78,9 +78,15 @@
 			};
 
 			partition@50000 {
+				label = "permanent_config";
+				reg = <0x50000 0x50000>;
+				read-only;
+			};
+
+			partition@a0000 {
 				compatible = "denx,uimage";
 				label = "firmware";
-				reg = <0x50000 0xfb0000>;
+				reg = <0xa0000 0xf60000>;
 			};
 		};
 	};
@@ -116,37 +122,37 @@
 
 &switch0 {
 	ports {
-		port@4 {
-			status = "okay";
-			label = "wan";
-			mtd-mac-address = <&factory 0xe006>;
-		};
-
-		port@1 {
+		port@0 {
 			status = "okay";
 			label = "lan1";
 		};
 
-		port@2 {
+		port@1 {
 			status = "okay";
 			label = "lan2";
 		};
 
-		port@3 {
+		port@2 {
 			status = "okay";
 			label = "lan3";
 		};
 
-		port@0 {
+		port@3 {
 			status = "okay";
 			label = "lan4";
+		};
+
+		port@4 {
+			status = "okay";
+			label = "wan";
+			mtd-mac-address = <&factory 0xe006>;
 		};
 	};
 };
 
 &state_default {
 	gpio {
-		groups = "i2c", "uart2", "uart3", "wdt";
+		groups = "i2c", "jtag";
 		function = "gpio";
 	};
 };
