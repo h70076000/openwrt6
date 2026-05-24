@@ -696,7 +696,6 @@ TARGET_DEVICES += hxzn_nx18n
 
 define Device/hxkj_360v5s
   $(Device/dsa-migration)
-  $(Device/uimage-lzma-loader)
   IMAGE_SIZE := 16064k
   DEVICE_VENDOR := HXKJ
   DEVICE_MODEL := MT7621
