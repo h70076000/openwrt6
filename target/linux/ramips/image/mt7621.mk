@@ -1208,11 +1208,10 @@ TARGET_DEVICES += hiwifi_hc5962
 
 define Device/hxzn_nx18n
   $(Device/dsa-migration)
-  IMAGE_SIZE := 32448k
+  IMAGE_SIZE := 15744k
   DEVICE_VENDOR := Hxzn
   DEVICE_MODEL := nx18n
-  DEVICE_PACKAGES := kmod-ata-ahci kmod-usb3 -wpad-basic-mbedtls \
-	-uboot-envtools
+  DEVICE_PACKAGES := -uboot-envtools
 endef
 TARGET_DEVICES += hxzn_nx18n
 
