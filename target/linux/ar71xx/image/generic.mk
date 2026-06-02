@@ -1331,18 +1331,6 @@ define Device/fritz300e
 endef
 TARGET_DEVICES += fritz300e
 
-define Device/zbt-we1526
-  DEVICE_TITLE := Zbtlink ZBT-WE1526
-  DEVICE_PACKAGES := kmod-usb-core kmod-usb2
-  BOARDNAME := ZBT-WE1526
-  IMAGE_SIZE := 16000k
-  KERNEL_SIZE := 1472k
-  ROOTFS_SIZE := 14528k
-  MTDPARTS := spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,14528k(rootfs),1472k(kernel),64k(art)ro,16000k@0x50000(firmware)
-  IMAGE/sysupgrade.bin := append-rootfs | pad-rootfs | pad-to $$$$(ROOTFS_SIZE) | append-kernel | check-size $$$$(IMAGE_SIZE)
-endef
-TARGET_DEVICES += zbt-we1526
-
 define Device/fritz4020
   $(call Device/AVM)
   DEVICE_TITLE := AVM FRITZ!Box 4020
