@@ -954,6 +954,17 @@ define Device/ruijie_ma1210sdwan
 endef
 TARGET_DEVICES += ruijie_ma1210sdwan
 
+define Device/rg-810sdwan
+  SOC := mt7620a
+  IMAGE_SIZE := 32448k
+  DEVICE_VENDOR := RuiJei
+  DEVICE_MODEL := RUiJEI
+  DEVICE_VARIANT := 32M
+  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-mmc-mtk
+  SUPPORTED_DEVICES += rg-810sdwan
+endef
+TARGET_DEVICES += rg-810sdwan
+
 define Device/sanlinking_d240
   SOC := mt7620a
   IMAGE_SIZE := 16064k
