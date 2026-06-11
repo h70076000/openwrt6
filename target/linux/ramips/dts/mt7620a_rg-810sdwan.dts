@@ -1,7 +1,7 @@
 #include "mt7620a_rg-810sdwan.dtsi"
 
 / {
-	compatible = "ruijie,rg-810sdwan", "ruijie,rg-810sdwan", "ralink,mt7620a-soc";
+	compatible = "rg-810sdwan", "rg-810sdwan", "ralink,mt7620a-soc";
 	model = "Ruijei RG-810sdwan";
 };
 
