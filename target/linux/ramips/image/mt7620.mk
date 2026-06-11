@@ -1117,8 +1117,8 @@ TARGET_DEVICES += ralink_mt7620a-mt7610e-evb
 define Device/rg-810sdwan
   SOC := mt7620a
   IMAGE_SIZE := 32448k
-  DEVICE_VENDOR := Ruiei
-  DEVICE_MODEL := RUiEI
+  DEVICE_VENDOR := RuiJei
+  DEVICE_MODEL := RUiJEI
   DEVICE_VARIANT := 32M
   DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-mmc-mtk
   SUPPORTED_DEVICES += rg-810sdwan
