@@ -1382,6 +1382,16 @@ define Device/tplink_re650-v1
 endef
 TARGET_DEVICES += tplink_re650-v1
 
+define Device/tplink_tl-473g
+  $(Device/dsa-migration)
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := v4
+  DEVICE_MODEL := tl-473g
+  DEVICE_PACKAGES := kmod-ata-ahci -wpad-basic-wolfssl
+	-uboot-envtools
+endef
+TARGET_DEVICES += tplink_tl-473g
+
 define Device/ubnt_edgerouter_common
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
