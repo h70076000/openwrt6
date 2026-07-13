@@ -1892,6 +1892,17 @@ define Device/plasmacloud_pa300e
 endef
 TARGET_DEVICES += plasmacloud_pa300e
 
+define Device/qca_ap143-16m
+  $(Device/qca_ap143)
+  DEVICE_VARIANT := (16M)
+  IMAGE_SIZE := 15936k
+  IMAGES += factory.bin
+  IMAGE/factory.bin := append-kernel | pad-to $$$$(BLOCKSIZE) | \
+	append-rootfs | pad-rootfs | check-size | pad-to 14528k | \
+	append-loader-okli-uimage $(1) | pad-to 64k
+endef
+TARGET_DEVICES += qca_ap143-16m
+
 define Device/qihoo_c301
   $(Device/seama)
   SOC := ar9344
