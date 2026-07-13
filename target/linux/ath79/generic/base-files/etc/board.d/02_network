@@ -188,6 +188,8 @@ ath79_setup_interfaces()
 	ubnt,routerstation)
 		ucidef_set_interfaces_lan_wan "eth1" "eth0"
 		;;
+	qca,ap143-8m|\
+	qca,ap143-16m|\
 	comfast,cf-e560ac)
 		ucidef_set_interface_wan "eth1"
 		ucidef_add_switch "switch0" \
