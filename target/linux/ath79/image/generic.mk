@@ -1892,6 +1892,17 @@ define Device/plasmacloud_pa300e
 endef
 TARGET_DEVICES += plasmacloud_pa300e
 
+define Device/qca_ap143
+  $(Device/loader-okli-uimage)
+  SOC := qca9533
+  DEVICE_VENDOR := Qualcomm Atheros
+  DEVICE_MODEL := AP143
+  DEVICE_PACKAGES := kmod-usb2
+  SUPPORTED_DEVICES += ap143
+  LOADER_FLASH_OFFS := 0x50000
+  KERNEL := kernel-bin | append-dtb | lzma | uImage lzma -M 0x4f4b4c49
+endef
+
 define Device/qca_ap143-16m
   $(Device/qca_ap143)
   DEVICE_VARIANT := (16M)
